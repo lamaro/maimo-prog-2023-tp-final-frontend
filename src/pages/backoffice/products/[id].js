@@ -1,4 +1,4 @@
-import SingleCardContainer from '@/containers/SingleCardContainer';
+import SingleCardContainer from '@/containers/SingleProductContainer';
 import { useRouter } from 'next/router';
 
 const Product = () => {
