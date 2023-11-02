@@ -23,7 +23,7 @@ const Navbar = ({ btnBack }) => {
               <a href="#catCuatro"> Categoría 3</a>
             </li>
             <li>
-              <Link href="/about"> Categoría 4</Link>
+              <Link href="/blabla"> blabla</Link> 
             </li>
           </ul>
         </div>
