@@ -1,11 +1,3 @@
-const product = {
-  name: "Franui chocolate amargo",
-  price: 2400,
-  image: "",
-  description: "",
-  type: "franui",
-};
-
 const products = [
   {
     id: 34254657,
