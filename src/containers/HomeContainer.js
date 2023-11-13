@@ -6,8 +6,7 @@ const HomeContainer = () => {
 
   return (
     <div>
-      {!lodingProducts &&
-        products.map(({ name }, index) => <p key={index}>{name}</p>)}
+      
         <section>
 
         </section>

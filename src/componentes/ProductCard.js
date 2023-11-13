@@ -1,18 +1,22 @@
-import React from 'react'
-import CardsContainer from '@/containers/CardsContainer'
+import React from 'react';
 
-
-const ProductCard = ({product}) => {
-    const {name, description, image, units} = product;
+const ProductCard = ({ product }) => {
   return (
     <div>
-        <p>{image}</p>
-        <p>{name}</p>
-        <p>{units}</p>
-        <p>{description}</p>
-        <p>ver mas</p>
+      {product.map((prod) => (
+        <div key={prod.id}>
+          <h2>{prod.name}</h2>
+          {prod.options.map((op) => (
+            <div key={op.sku}>
+              <p>Name: {op.name}</p>
+              <p>Price: {op.price}</p>
+            </div>
+          ))}
+          <p>ver mas</p>
+        </div>
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default ProductCard
+export default ProductCard;
