@@ -1,5 +1,5 @@
 import React from "react";
-import { useAppContext } from "@/contexts/AppContext";
+import { useAppContext } from "@/contexts/Cartcontext";
 import Link from "next/link";
 import { GiHamburgerMenu } from "react-icons/gi";
 
