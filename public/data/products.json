@@ -1,24 +1,31 @@
-[
-  {
+{
+
+  "franui": {
     "id": 34254657,
     "name": "Franui",
     "options": [
       {
         "name": "Chocolate Amargo",
         "price": 2400,
-        "sku": "Franui-Choco-Amargo"
+        "sku": "Franui-Choco-Amargo",
+        "image": "type: String",
+        "description": "type: String"
+       
       },
       {
         "name": "Chocolate Con Leche",
         "price": 3000,
-        "sku": "Franui-Choco-Leche"
+        "sku": "Franui-Choco-Leche",
+        "image": "type: String",
+        "description": "type: String"
+        
       }
     ],
     "image": "",
     "description": "El mas amargo de todos",
     "type": "franui"
   },
-  {
+  "palito": {
     "id": 34254657,
     "name": "Helado palito",
     "options": [
@@ -26,40 +33,50 @@
         "name": "Straweberry",
         "units": "8U",
         "price": 5000,
-        "sku": "palito-stra-8u"
+        "sku": "palito-stra-8u",
+        "image": "type: String",
+        "description": "type: String"
       },
       {
         "name": "Straweberry",
         "units": "12U",
         "price": 7000,
-        "sku": "palito-stra-12u"
+        "sku": "palito-stra-12u",
+        "image": "type: String",
+        "description": "type: String"
       }
     ],
     "image": " ",
     "description": "Que rico",
     "type": "palito"
   },
-  {
+  "gustos": {
     "id": 23456,
-    "name": "Pote",
+    "name": "Gustos",
     "options": [
       {
         "name": "1Kg",
         "price": 4000,
         "maxFlavors": 4,
-        "sku": "Pore-1kg"
+        "sku": "Pore-1kg",
+        "image": "type: String",
+        "description": "type: String"
       },
       {
         "name": "1/2Kg",
         "price": 2000,
         "maxFlavors": 3,
-        "sku": "Pore-1/2kg"
+        "sku": "Pore-1/2kg",
+        "image": "type: String",
+        "description": "type: String"
       },
       {
         "name": "1/4Kg",
         "price": 1200,
         "maxFlavors": 3,
-        "sku": "Pore-1/4kg"
+        "sku": "Pore-1/4kg",
+        "image": "type: String",
+        "description": "type: String"
       }
     ],
     "units": "20U",
@@ -67,7 +84,41 @@
     "description": "Que rico",
     "type": "pote"
   },
-  {
+  "pote": {
+    "id": 23456,
+    "name": "Pote",
+    "options": [
+      {
+        "name": "1Kg",
+        "price": 4000,
+        "maxFlavors": 4,
+        "sku": "Pore-1kg",
+        "image": "type: String",
+        "description": "type: String"
+      },
+      {
+        "name": "1/2Kg",
+        "price": 2000,
+        "maxFlavors": 3,
+        "sku": "Pore-1/2kg",
+        "image": "type: String",
+        "description": "type: String"
+      },
+      {
+        "name": "1/4Kg",
+        "price": 1200,
+        "maxFlavors": 3,
+        "sku": "Pore-1/4kg",
+        "image": "type: String",
+        "description": "type: String"
+      }
+    ],
+    "units": "20U",
+    "image": "",
+    "description": "Que rico",
+    "type": "pote"
+  },
+  "cucurucho": {
     "id": 34254657,
     "name": "Cucurucho",
     "options": [
@@ -86,7 +137,7 @@
     "description": "Para el heladito",
     "type": "additional cucurucho"
   },
-  {
+  "salsa": {
     "id": 34254657,
     "name": "Salsa",
     "options": [
@@ -100,7 +151,7 @@
     "description": "Para el heladito",
     "type": "additional salsa"
   },
-  {
+  "topping": {
     "id": 34254657,
     "name": "Topping",
     "options": [
@@ -114,4 +165,4 @@
     "description": "Para el heladito",
     "type": "additional topping"
   }
-]
+}

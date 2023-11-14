@@ -1,22 +1,32 @@
+import { Accordion, AccordionItem, Button, Card, CardBody, CardHeader } from '@nextui-org/react';
 import React from 'react';
 
 const ProductCard = ({ product }) => {
-  return (
-    <div>
-      {product.map((prod) => (
-        <div key={prod.id}>
-          <h2>{prod.name}</h2>
-          {prod.options.map((op) => (
-            <div key={op.sku}>
-              <p>Name: {op.name}</p>
-              <p>Price: {op.price}</p>
-            </div>
-          ))}
-          <p>ver mas</p>
-        </div>
-      ))}
-    </div>
-  );
+    console.log(product)
+
+
+    return (
+        <Card>
+            <CardHeader>
+                {product.name}
+            </CardHeader>
+            <CardBody>
+                {product?.units}
+                {product?.maxFlavors}
+                <Accordion>
+                    <AccordionItem>
+                        <Button>
+                            Chocolate
+                        </Button>
+                        <Button>Frutilla</Button>
+
+                    </AccordionItem>
+
+                </Accordion>
+            </CardBody>
+        </Card>
+
+    );
 };
 
 export default ProductCard;

@@ -10,7 +10,7 @@ import axios from "axios";
 const CartContext = createContext();
 
 const CartProvider = ({ defaultValue = [], children }) => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(null);
   const [lodingProducts, setLoadingProducts] = useState(true);
 
   const getProducts = useCallback(async () => {

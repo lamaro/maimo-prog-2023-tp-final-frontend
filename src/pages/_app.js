@@ -1,10 +1,14 @@
 import "@/styles/globals.css";
 import { CartProvider } from "@/contexts/Cartcontext";
+import { NextUIProvider } from "@nextui-org/react";
 
 export default function App({ Component, pageProps }) {
   return (
-    <CartProvider>
-      <Component {...pageProps} />
-    </CartProvider>
+    <NextUIProvider>
+      <CartProvider>
+        <Component {...pageProps} />
+      </CartProvider>
+    </NextUIProvider>
+
   );
 }
