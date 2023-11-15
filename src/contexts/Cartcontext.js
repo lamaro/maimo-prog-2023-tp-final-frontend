@@ -11,6 +11,7 @@ const CartContext = createContext();
 
 const CartProvider = ({ defaultValue = [], children }) => {
   const [products, setProducts] = useState(null);
+  const [producto, setProducto] = useState({});
   const [lodingProducts, setLoadingProducts] = useState(true);
 
   const getProducts = useCallback(async () => {
@@ -24,6 +25,50 @@ const CartProvider = ({ defaultValue = [], children }) => {
     }
   }, []);
 
+  //funcion nueva: es asincrona y es para llamar al json 
+  const getProduct = useCallback(async (id) => {
+    console.log(id)
+    try {
+      setLoadingProducts(true)
+      //filtrar products y devolver un producto por id
+      let products2 = await axios.get("/data/products.json");
+        let productFinal = await buscarPorSKU(products2.data, id);
+        console.log(productFinal)
+        setProducto(productFinal)
+        console.log(producto)
+      
+      
+      setLoadingProducts(false)
+    
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
+  //buscamos por sku para traer elementos del json
+  async function  buscarPorSKU(data, skuBuscado) {
+    // Iterar sobre cada propiedad del objeto
+    //in es una propiedad de queda objeto
+    //no usamos map porque no recorre objetos
+    for (let categoria in data) {
+      //data es todo el json
+      //categoria = franui/helados/palitos
+      let opciones = data[categoria].options;
+
+      // Buscar en las opciones de cada categoría
+      //of es para un array (recorremos cada elemento del array)
+      //aca podríamos usar un map porque sí recorre arrays
+      for (let opcion of opciones) {
+        if (opcion.sku === skuBuscado) {
+          return opcion; // Retorna la opción encontrada
+        }
+      }
+    }
+
+    // Retorna null si no se encuentra el SKU
+    return null;
+  }
+
   useEffect(() => {
     getProducts();
   }, [getProducts]);
@@ -32,7 +77,9 @@ const CartProvider = ({ defaultValue = [], children }) => {
     <CartContext.Provider
       value={{
         products,
-        lodingProducts
+        lodingProducts,
+        getProduct,
+        producto,
       }}
     >
       {children}
