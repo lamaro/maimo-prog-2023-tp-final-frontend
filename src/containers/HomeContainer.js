@@ -22,6 +22,7 @@ const HomeContainer = () => {
       
         <section>
           {/*hero*/}
+          
         </section>
       {/*conocenos*/}
         <section>
