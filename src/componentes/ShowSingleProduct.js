@@ -9,16 +9,19 @@ export const ShowSingleProduct = ({ producto, allInfo }) => {
 
     return (
         <LayoutContainer>
-            <div className='h-screen bg-black flex flex-col justify-center items-center'>
-
-                <Card className='bg-red-200 '>
-                    <CardHeader>{producto.name}</CardHeader>
-                    <div className='grid grid-cols-2'>
-                        <Image src={producto.image} alt={producto.name}></Image>
+            <div className='h-screen w-screen flex  gap-3   bg-rose-50 justify-center items-center'>
+            <Image className='col-span-6 mr-4'src={producto.image} alt={producto.name}
+            width={500}
+            
+            ></Image>
+                <Card className='bg-red-200 col-span-6'>
+                
+                    <CardHeader> <h4 className="font-bold text-large text-center">{producto.name}</h4></CardHeader>
+                    <div className=''>
+                       
                         <CardBody>
-                            Titulo
-                            Parrafo
-                            gustos
+                        <p className="text-default-500 mb-4">{producto.description}</p>
+                          
                             <div>
                                 <RadioGroup
                                     label="Select your favorite city"
@@ -34,13 +37,17 @@ export const ShowSingleProduct = ({ producto, allInfo }) => {
 
                                 </RadioGroup>
                                 Gusto Seleccionado: {selected}
-                            </div>
+                            </div> 
                             Boton
                         </CardBody>
                     </div>
 
                 </Card>
 
+            </div>
+            <div className='  bg-rose-50 '>
+                
+             <h4 className="font-bold text-black  text-large text-start ml-20">Querés ver nuestros gustos? Te los dejamos a mano</h4>
             </div>
         </LayoutContainer >
     )
