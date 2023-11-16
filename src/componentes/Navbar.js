@@ -13,6 +13,7 @@ import {
   Link as NextUILink,
 } from "@nextui-org/react";
 
+
 function NavbarComponent() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [cantidadEnCarrito, setCantidadEnCarrito] = useState(0);
@@ -30,7 +31,7 @@ function NavbarComponent() {
 
   return (
     <Navbar
-      className="bg-transparent text-black lowercase"
+      className="bg-transparent text-black lowercase place-content-between"
       isBordered
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
@@ -42,9 +43,9 @@ function NavbarComponent() {
       </NavbarContent>
 
       <NavbarContent className="sm:hidden pr-3" justify="center">
-        <NavbarBrand>
+        <NavbarBrand className="ml-auto">
           <ReactSVG
-            src="/assets/gelatella.svg"
+            src="/assets/gelatella-navbar.svg"
             width={120}
             height={48}
             alt="Logo Gelatella Heladería"
@@ -53,21 +54,23 @@ function NavbarComponent() {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarBrand>
-        <ReactSVG
-            src="/assets/gelatella.svg"
+      <NavbarContent className="hidden sm:flex gap-4 place-content-between" justify="center">
+        <NavbarBrand className="ml-auto">
+          <ReactSVG
+            src="/assets/gelatella-navbar.svg"
             width={120}
             height={48}
             alt="Logo Gelatella Heladería"
             className="text-white"
           />
         </NavbarBrand>
-        {menuItems.map((item, index) => (
-          <NavbarItem key={`${item.label}-${index}`}>
-            <Link href={item.path}>{item.label}</Link>
-          </NavbarItem>
-        ))}
+        <NavbarContent className="mx-auto justify-center space-x-4">
+          {menuItems.map((item, index) => (
+            <NavbarItem key={`${item.label}-${index}`}>
+              <Link href={item.path}>{item.label}</Link>
+            </NavbarItem>
+          ))}
+        </NavbarContent>
       </NavbarContent>
 
       <NavbarContent justify="end">
