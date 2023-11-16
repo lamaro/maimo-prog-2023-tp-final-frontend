@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useCartContext } from '@/contexts/Cartcontext';
 import { Button } from '@nextui-org/react';
 import LayoutContainer from '@/containers/LayoutContainer';
+
 const helados = () => {
     const { products, lodingProducts } = useCartContext();
     const [recursos, setRecursos] = useState([]);
@@ -12,7 +13,6 @@ const helados = () => {
         let productosDefault = []
         if (products) {
             productosDefault = products.franui.options
-         
         }
 
         setRecursos(productosDefault)
@@ -32,20 +32,15 @@ const helados = () => {
                 setRecursos(products.pote.options)
                 break
         }
-
-
     }
 
-
     return (
-        
         <div className="bg-pink-100 min-h-screen">
         <LayoutContainer> 
             {/* Header */}
             <header className="text-center p-4">
                 {/* Navigation here */}
             </header>
-
             {/* Main Content */}
             <main className="py-10">
                 {/* Title */}
@@ -58,9 +53,7 @@ const helados = () => {
                 </div>
                 {/* Products Section */}
                 <CardsContainer recursos={recursos} className="grid grid-cols-1 md:grid-cols-3 gap-4 px-4">
-
                 </CardsContainer>
-
             </main>
         </LayoutContainer>
         </div>
