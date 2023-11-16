@@ -1,6 +1,9 @@
 import { useCartContext } from "@/contexts/Cartcontext";
 import CardsContainer from "@/containers/CardsContainer";
 import { useState, useEffect } from "react";
+import Hero from "@/componentes/Hero";
+import Conocenos from "@/componentes/Conocenos";
+import Form from "@/componentes/Form";
 
 const HomeContainer = () => {
   const { products, lodingProducts } = useCartContext();
@@ -21,15 +24,14 @@ const HomeContainer = () => {
     <div>
 
       <section>
-
+      <Hero />
       </section>
-
+      <Conocenos />
       <section>
-
         <CardsContainer recursos={recursos}></CardsContainer>
       </section>
       <section>
-
+      <Form />
       </section>
     </div>
   );
