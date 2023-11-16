@@ -2,7 +2,7 @@
 import { nextui } from "@nextui-org/react";
 module.exports = {
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/pages/**/**/**.{js,ts,jsx,tsx,mdx}',
     './src/componentes/**/*.{js,ts,jsx,tsx,mdx}',
     './src/containers/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
