@@ -4,18 +4,18 @@
     "name": "Franui",
     "options": [
       {
-        "name": "Chocolate Amargo",
+        "name": "Franuis: Chocolate Amargo",
         "price": 2400,
         "sku": "Franui-Choco-Amargo",
         "image": "type: String",
-        "description": "type: String"
+        "description": "Deliciosas frambuesas provenientes de El Bolsón, Patagonia Argentina, bañadas en dos chocolates: chocolate amargo y chocolate blanco."
       },
       {
-        "name": "Chocolate Con Leche",
+        "name": "Franuis: Chocolate Con Leche",
         "price": 3000,
         "sku": "Franui-Choco-Leche",
         "image": "type: String",
-        "description": "type: String"
+        "description": "Deliciosas frambuesas provenientes de El Bolsón, Patagonia Argentina, bañadas en dos chocolates: chocolate con leche y chocolate blanco."
       }
     ],
     "image": "",
@@ -27,11 +27,11 @@
     "name": "Helado palito",
     "options": [
       {
-        "name": "Straweberry",
+        "name": "Strawberry",
         "units": "8U",
         "price": 5000,
         "sku": "palito-stra-8u",
-        "image": "type: String",
+        "image": "https://github.com/lamaro/maimo-prog-2023-tp-final-frontend/blob/develop/public/assets/palito-frutilla.png?raw=true",
         "description": "type: String"
       },
       {
@@ -53,9 +53,9 @@
     "options": [
       {
         "sku": "nosirve1",
-        "name": "Chocolate",
-        "image": " chocolate.png",
-        "description": "A veces es amargo",
+        "name": "Crema Pampeana",
+        "image": "public/assets/flavor-crema-pampeana.png",
+        "description": "Sumergite en la riqueza de la Crema Pampeana, con la suavidad de la leche más fina de la región. Un deleite cremoso que acaricia tu paladar con notas de vainilla y un toque sutil de caramelo, llevándote a un viaje de tradición y autenticidad.",
         "apto": {
           "vegano": true,
           "celiaco": false

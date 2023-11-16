@@ -11,14 +11,14 @@ const ProductCard = ({ product }) => {
                 <h4 className="font-bold text-large">{product.name}</h4>
             </CardHeader>
             <CardBody>
-                
+
                     <Image
                         alt="Card background"
                         className="object-cover rounded-xl"
-                        src='https://picsum.photos/700/400'
+                        src={product.image}
                         width={270}
                     />
-                
+
                 <div>
                     <small className="text-default-500">{product.description}</small>
                     <p className="text-tiny uppercase font-bold">{product?.units}</p>

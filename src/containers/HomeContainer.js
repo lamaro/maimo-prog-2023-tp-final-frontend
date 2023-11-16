@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useCartContext } from "@/contexts/Cartcontext";
 import CardsContainer from "@/containers/CardsContainer";
-import { useState, useEffect } from "react";
 
 const HomeContainer = () => {
   const { products, lodingProducts } = useCartContext();
