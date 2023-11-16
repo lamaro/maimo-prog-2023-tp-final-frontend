@@ -3,10 +3,19 @@
 @tailwind utilities;
 @import url("https://use.typekit.net/nru1nwu.css");
 
+
+@import url("https://use.typekit.net/nru1nwu.css");
+
+
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+}
+
+html{
+  background-color: white;
 }
 
 @media (prefers-color-scheme: dark) {
