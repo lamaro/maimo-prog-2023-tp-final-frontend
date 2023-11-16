@@ -13,7 +13,7 @@ const ProductCard = ({ product }) => {
             <CardBody>
 
                     <Image
-                        alt="Card background"
+                        alt={product.name}
                         className="object-cover rounded-xl"
                         src={product.image}
                         width={270}
