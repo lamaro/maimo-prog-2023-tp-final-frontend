@@ -14,7 +14,7 @@ export const ShowSingleProduct = ({ producto, allInfo }) => {
                 <Card className='bg-red-200 '>
                     <CardHeader>{producto.name}</CardHeader>
                     <div className='grid grid-cols-2'>
-                        <Image src='https://picsum.photos/700/400'></Image>
+                        <Image src={producto.image} alt={producto.name}></Image>
                         <CardBody>
                             Titulo
                             Parrafo
