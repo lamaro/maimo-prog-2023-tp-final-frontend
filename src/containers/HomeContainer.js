@@ -21,15 +21,15 @@ const HomeContainer = () => {
     <div>
 
       <section>
-        {/*hero*/}
+
       </section>
-      {/*conocenos*/}
+
       <section>
-        {/*cards*/}
+
         <CardsContainer recursos={recursos}></CardsContainer>
       </section>
       <section>
-        {/*formulario*/}
+
       </section>
     </div>
   );
