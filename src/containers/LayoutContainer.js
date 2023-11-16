@@ -1,10 +1,10 @@
 import Footer from '@/componentes/Footer';
-import Navbar from '@/componentes/Navbar';
+import NavbarComponent from '@/componentes/Navbar';
 
 const LayoutContainer = ({ children, title }) => {
   return (
     <>
-      <Navbar />
+      <NavbarComponent />
       <h1>{title}</h1>
       <main>{children}</main>
       <Footer />
