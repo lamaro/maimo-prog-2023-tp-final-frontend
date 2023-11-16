@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Image } from "@nextui-org/react";
+import { ReactSVG } from "react-svg";
 import Link from "next/link";
 import { FaShoppingCart } from "react-icons/fa";
 import {
@@ -43,18 +43,24 @@ function NavbarComponent() {
 
       <NavbarContent className="sm:hidden pr-3" justify="center">
         <NavbarBrand>
-          <Image
-            src={`public/assets/gelatella.png`}
-            alt={`logo Gelatella Heladería`}
+          <ReactSVG
+            src="/assets/gelatella.svg"
+            width={120}
+            height={48}
+            alt="Logo Gelatella Heladería"
+            className="text-white"
           />
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarBrand>
-          <Image
-            src={`public/assets/gelatella.png`}
-            alt={`logo Gelatella Heladería`}
+        <ReactSVG
+            src="/assets/gelatella.svg"
+            width={120}
+            height={48}
+            alt="Logo Gelatella Heladería"
+            className="text-white"
           />
         </NavbarBrand>
         {menuItems.map((item, index) => (
