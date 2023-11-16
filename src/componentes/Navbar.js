@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { Accordion, AccordionItem, Button, Card, CardBody, CardHeader, Image} from '@nextui-org/react';
+import { Image } from "@nextui-org/react";
 import Link from "next/link";
-// import { useAppContext } from "@/contexts/Cartcontext";
 import { FaShoppingCart } from "react-icons/fa";
 import {
   Navbar,
@@ -23,14 +22,19 @@ function NavbarComponent() {
   };
 
   const menuItems = [
-    "Productos",
-    "Conocenos",
-    "Newsletter",
-    "Contactanos",
+    { label: "Productos", path: "/helados" },
+    { label: "Conocenos", path: "/about" },
+    { label: "Newsletter", path: "#new" },
+    { label: "Contactanos", path: "#new" },
   ];
 
   return (
-    <Navbar className="bg-transparent text-black lowercase" isBordered isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
+    <Navbar
+      className="bg-transparent text-black lowercase"
+      isBordered
+      isMenuOpen={isMenuOpen}
+      onMenuOpenChange={setIsMenuOpen}
+    >
       <NavbarContent className="sm:hidden" justify="start">
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -40,8 +44,8 @@ function NavbarComponent() {
       <NavbarContent className="sm:hidden pr-3" justify="center">
         <NavbarBrand>
           <Image
-            src="public/assets/gelatella.png"
-            alt="logo Gelatella Heladería"
+            src={`public/assets/gelatella.png`}
+            alt={`logo Gelatella Heladería`}
           />
         </NavbarBrand>
       </NavbarContent>
@@ -49,28 +53,21 @@ function NavbarComponent() {
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarBrand>
           <Image
-            src="public/assets/gelatella.png"
-            alt="logo Gelatella Heladería"
+            src={`public/assets/gelatella.png`}
+            alt={`logo Gelatella Heladería`}
           />
         </NavbarBrand>
-        <NavbarItem>
-          <Link href="/helados">Productos</Link>
-        </NavbarItem>
-        <NavbarItem isActive>
-          <Link href="/about">Conocenos</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link href="#new">Newsletter</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link href="#new">Contactanos</Link>
-        </NavbarItem>
+        {menuItems.map((item, index) => (
+          <NavbarItem key={`${item.label}-${index}`}>
+            <Link href={item.path}>{item.label}</Link>
+          </NavbarItem>
+        ))}
       </NavbarContent>
 
-      <NavbarContent justify="end" >
+      <NavbarContent justify="end">
         <NavbarItem>
           <NextUILink href="#new" className="text-black">
-            <FaShoppingCart size={24}  />
+            <FaShoppingCart size={24} />
             <span className="px-2">({cantidadEnCarrito})</span>
           </NextUILink>
         </NavbarItem>
@@ -78,7 +75,7 @@ function NavbarComponent() {
 
       <NavbarMenu>
         {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
+          <NavbarMenuItem key={`${item.label}-${index}`}>
             <Link
               className="w-full"
               color={
@@ -88,10 +85,10 @@ function NavbarComponent() {
                   ? "danger"
                   : "foreground"
               }
-              href="#"
+              href={item.path}
               size="lg"
             >
-              {item}
+              {item.label}
             </Link>
           </NavbarMenuItem>
         ))}
