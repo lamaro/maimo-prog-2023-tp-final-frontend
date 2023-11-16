@@ -1,4 +1,4 @@
-import { Accordion, AccordionItem, Button, Card, CardBody, CardHeader } from '@nextui-org/react';
+import { Accordion, AccordionItem, Button, Card, CardBody, CardHeader, Image} from '@nextui-org/react';
 import React from 'react';
 
 const ProductCard = ({ product }) => {
@@ -6,23 +6,26 @@ const ProductCard = ({ product }) => {
 
 
     return (
-        <Card>
-            <CardHeader>
-                {product.name}
+        <Card className="py-4">
+            <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+                <h4 className="font-bold text-large">{product.name}</h4>
             </CardHeader>
             <CardBody>
-                {product?.units}
-                {product?.maxFlavors}
-                <Accordion>
-                    <AccordionItem>
-                        <Button>
-                            Chocolate
-                        </Button>
-                        <Button>Frutilla</Button>
-
-                    </AccordionItem>
-
-                </Accordion>
+                
+                    <Image
+                        alt="Card background"
+                        className="object-cover rounded-xl"
+                        src='https://picsum.photos/700/400'
+                        width={270}
+                    />
+                
+                <div>
+                    <small className="text-default-500">{product.description}</small>
+                    <p className="text-tiny uppercase font-bold">{product?.units}</p>
+                    <p className="text-tiny uppercase font-bold">{product?.maxFlavors}</p>
+                </div>
+                <Button color="green" variant="ghost" className= "text-tiny uppercase font-bold">Ver más</Button>
+                
             </CardBody>
         </Card>
 

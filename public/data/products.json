@@ -1,5 +1,4 @@
 {
-
   "franui": {
     "id": 34254657,
     "name": "Franui",
@@ -10,7 +9,6 @@
         "sku": "Franui-Choco-Amargo",
         "image": "type: String",
         "description": "type: String"
-       
       },
       {
         "name": "Chocolate Con Leche",
@@ -18,7 +16,6 @@
         "sku": "Franui-Choco-Leche",
         "image": "type: String",
         "description": "type: String"
-        
       }
     ],
     "image": "",
@@ -51,45 +48,47 @@
     "type": "palito"
   },
   "gustos": {
-    "id": 23456,
+    "id": 34254227,
     "name": "Gustos",
     "options": [
       {
-        "name": "1Kg",
-        "price": 4000,
-        "maxFlavors": 4,
-        "sku": "Pore-1kg",
-        "image": "type: String",
-        "description": "type: String"
+        "sku": "nosirve1",
+        "name": "Chocolate",
+        "image": " chocolate.png",
+        "description": "A veces es amargo",
+        "apto": {
+          "vegano": true,
+          "celiaco": false
+        }
       },
       {
-        "name": "1/2Kg",
-        "price": 2000,
-        "maxFlavors": 3,
-        "sku": "Pore-1/2kg",
-        "image": "type: String",
-        "description": "type: String"
+        "sku": "nosirve2",
+        "name": "Vainilla",
+        "image": " chocolate.png",
+        "description": "A veces es amargo",
+        "apto": {
+          "vegano": true,
+          "celiaco": false
+        }
       },
       {
-        "name": "1/4Kg",
-        "price": 1200,
-        "maxFlavors": 3,
-        "sku": "Pore-1/4kg",
-        "image": "type: String",
-        "description": "type: String"
+        "sku": "nosirve3",
+        "name": "Frutilla",
+        "image": " chocolate.png",
+        "description": "A veces es amargo",
+        "apto": {
+          "vegano": true,
+          "celiaco": false
+        }
       }
-    ],
-    "units": "20U",
-    "image": "",
-    "description": "Que rico",
-    "type": "pote"
+    ]
   },
   "pote": {
     "id": 23456,
     "name": "Pote",
     "options": [
       {
-        "name": "1Kg",
+        "name": "Pote 1Kg",
         "price": 4000,
         "maxFlavors": 4,
         "sku": "Pore-1kg",
@@ -97,7 +96,7 @@
         "description": "type: String"
       },
       {
-        "name": "1/2Kg",
+        "name": "Pote 1/2Kg",
         "price": 2000,
         "maxFlavors": 3,
         "sku": "Pore-1/2kg",
@@ -105,7 +104,7 @@
         "description": "type: String"
       },
       {
-        "name": "1/4Kg",
+        "name": "Pote 1/4Kg",
         "price": 1200,
         "maxFlavors": 3,
         "sku": "Pore-1/4kg",

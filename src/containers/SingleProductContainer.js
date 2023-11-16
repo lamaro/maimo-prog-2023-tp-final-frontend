@@ -1,21 +1,24 @@
 import { useEffect } from 'react';
-import { useAppContext } from '@/contexts/AppContext';
-//import ShowSingleCard from '@/components/ShowSingleCard';
+import { useCartContext } from '@/contexts/Cartcontext';
+import { ShowSingleProduct } from '@/componentes/ShowSingleProduct';
+import { Spinner } from '@nextui-org/react';
 
 const SingleProductContainer = ({ id }) => {
-  const { product, getProduct, productLoading } = useAppContext();
-
+  const { producto, getProduct, loadingProducts, products } = useCartContext()
+  console.log("id: ",id)
   useEffect(() => {
     if (id) {
-      getShow(id);
+      getProduct(id)
     }
-  }, [id, getShow]);
+  }, [id, getProduct]);
 
-  //boton agregar al carrito
+  //boton agregar al carrito allInfo para que traiga los gusto, producto para que tariga los productos
+  //allInfo = gustos
+  //Traigo los gustos porque no tienen sku
   return (
-    <>
-      {showLoading && <p>LOADING....</p>}
-      {!showLoading && <ShowSingleCard show={show} />}
+    <>                                                           
+      {!loadingProducts ? <ShowSingleProduct producto={producto} allInfo={products} /> : <Spinner size="lg" /> }
+     
       
     </>
   );

@@ -2,6 +2,7 @@ import CardsContainer from '@/containers/CardsContainer';
 import React, { useEffect, useState } from 'react'
 import { useCartContext } from '@/contexts/Cartcontext';
 import { Button } from '@nextui-org/react';
+import LayoutContainer from '@/containers/LayoutContainer';
 const helados = () => {
     const { products, lodingProducts } = useCartContext();
     const [recursos, setRecursos] = useState([]);
@@ -37,7 +38,9 @@ const helados = () => {
 
 
     return (
+        
         <div className="bg-pink-100 min-h-screen">
+        <LayoutContainer> 
             {/* Header */}
             <header className="text-center p-4">
                 {/* Navigation here */}
@@ -59,11 +62,7 @@ const helados = () => {
                 </CardsContainer>
 
             </main>
-
-            {/* Footer */}
-            <footer className="bg-green-300 text-center p-4">
-                {/* Footer content */}
-            </footer>
+        </LayoutContainer>
         </div>
     );
 

@@ -14,16 +14,13 @@ const Navbar = ({ btnBack }) => {
           <button className="block lg:hidden"><GiHamburgerMenu size='3em'/></button>
           <ul className="hidden lg:flex gap-2  ">
             <li>
-              <a href="#catDos"> Categoría 1</a>
+              <Link href="/helados">Helados</Link>
             </li>
             <li>
-              <a href="#catTres"> Categoría 2</a>
+              <Link href="/about">Conocenos</Link>
             </li>
             <li>
-              <a href="#catCuatro"> Categoría 3</a>
-            </li>
-            <li>
-              <Link href="/blabla"> blabla</Link> 
+              <a href="#new">Newletter</a>
             </li>
           </ul>
         </div>
