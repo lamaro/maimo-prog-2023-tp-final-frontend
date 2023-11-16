@@ -19,19 +19,18 @@ const HomeContainer = () => {
 
   return (
     <div>
-      
-        <section>
-          {/*hero*/}
-          
-        </section>
+
+      <section>
+        {/*hero*/}
+      </section>
       {/*conocenos*/}
-        <section>
+      <section>
         {/*cards*/}
         <CardsContainer recursos={recursos}></CardsContainer>
-        </section>
-        <section>
+      </section>
+      <section>
         {/*formulario*/}
-        </section>
+      </section>
     </div>
   );
 };
