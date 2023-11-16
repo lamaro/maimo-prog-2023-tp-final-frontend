@@ -1,7 +1,7 @@
 import CardsContainer from '@/containers/CardsContainer';
 import React, { useEffect, useState } from 'react'
 import { useCartContext } from '@/contexts/Cartcontext';
-import { Button } from '@nextui-org/react';
+import { Button} from '@nextui-org/react';
 import LayoutContainer from '@/containers/LayoutContainer';
 
 const helados = () => {
@@ -34,8 +34,9 @@ const helados = () => {
         }
     }
 
+
     return (
-        <div className="bg-pink-100 min-h-screen">
+        <div className="bg-amber-50 min-h-screen">
         <LayoutContainer> 
             {/* Header */}
             <header className="text-center p-4">
@@ -44,12 +45,12 @@ const helados = () => {
             {/* Main Content */}
             <main className="py-10">
                 {/* Title */}
-                <h1 className="text-6xl font-bold text-center mb-10">helados</h1>
+                <h1 className="text-6xl font-bold text-center mb-10">Productos Gelatella</h1>
                 {/*FILTROS*/}
-                <div className='w-[90%] mx-auto grid grid-cols-3 gap-6 my-8'>
-                    <Button value={"franui"} onClick={handleClick}>Franui</Button>
-                    <Button value={"palitos"} onClick={handleClick}>Palitos</Button>
-                    <Button value={"pote"} onClick={handleClick}>Pote</Button>
+                <div className='flex mb-8 justify-center'>
+                        <Button value={"franui"} variant="light" onClick={handleClick}>Gelatella x Franui</Button>
+                        <Button value={"palitos"} variant="light" onClick={handleClick}>Gelatella x Palitos</Button>
+                        <Button value={"pote"} variant="light" onClick={handleClick}>Gelatella x Pote</Button>
                 </div>
                 {/* Products Section */}
                 <CardsContainer recursos={recursos} className="grid grid-cols-1 md:grid-cols-3 gap-4 px-4">
