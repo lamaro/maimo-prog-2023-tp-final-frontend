@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://use.typekit.net/nru1nwu.css");
 
 
 @import url("https://use.typekit.net/nru1nwu.css");
@@ -30,6 +31,7 @@ body {
   background: #FDFAF0;
   font-family: Swear Text;
 }
+
 h1{
   font-family: Swear Text;
 }
@@ -41,4 +43,8 @@ h2{
 p{
   font-family: degular-text, sans-serif;
 
+}
+
+a{
+  color:black;
 }
