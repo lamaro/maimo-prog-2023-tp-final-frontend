@@ -44,6 +44,7 @@ function NavbarComponent() {
 
       <NavbarContent className="sm:hidden pr-3" justify="center">
         <NavbarBrand className="ml-auto">
+        <Link href="/">
           <ReactSVG
             src="/assets/gelatella-navbar.svg"
             width={120}
@@ -51,11 +52,13 @@ function NavbarComponent() {
             alt="Logo Gelatella Heladería"
             className="text-white"
           />
+          </Link>
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4 place-content-between" justify="center">
         <NavbarBrand className="ml-auto">
+          <Link href="/">
           <ReactSVG
             src="/assets/gelatella-navbar.svg"
             width={120}
@@ -63,6 +66,7 @@ function NavbarComponent() {
             alt="Logo Gelatella Heladería"
             className="text-white"
           />
+          </Link>
         </NavbarBrand>
         <NavbarContent className="mx-auto justify-center space-x-4">
           {menuItems.map((item, index) => (
