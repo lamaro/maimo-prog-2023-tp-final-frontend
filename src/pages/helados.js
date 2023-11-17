@@ -4,7 +4,7 @@ import { useCartContext } from '@/contexts/Cartcontext';
 import { Button } from '@nextui-org/react';
 import LayoutContainer from '@/containers/LayoutContainer';
 
-const helados = () => {
+const Helados = () => {
     const { products, lodingProducts } = useCartContext();
     const [recursos, setRecursos] = useState([]);
 
@@ -62,4 +62,4 @@ const helados = () => {
 
 }
 
-export default helados
+export default Helados
