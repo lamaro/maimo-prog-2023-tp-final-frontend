@@ -35,7 +35,6 @@ const CartProvider = ({ defaultValue = [], children }) => {
         let productFinal = await buscarPorSKU(products2.data, id);
         console.log(productFinal)
         setProducto(productFinal)
-        console.log(producto)
       
       
       setLoadingProducts(false)
@@ -43,7 +42,7 @@ const CartProvider = ({ defaultValue = [], children }) => {
     } catch (error) {
       console.log(error);
     }
-  }, [producto]);
+  }, []);
 
   //buscamos por sku para traer elementos del json
   async function  buscarPorSKU(data, skuBuscado) {
