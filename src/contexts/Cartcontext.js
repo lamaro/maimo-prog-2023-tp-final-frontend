@@ -43,7 +43,7 @@ const CartProvider = ({ defaultValue = [], children }) => {
     } catch (error) {
       console.log(error);
     }
-  }, []);
+  }, [producto]);
 
   //buscamos por sku para traer elementos del json
   async function  buscarPorSKU(data, skuBuscado) {
