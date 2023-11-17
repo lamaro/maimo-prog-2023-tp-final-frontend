@@ -10,12 +10,10 @@ const BOSingleOrder = ({ show }) => {
     <h1 class='text-center pb-8 text-4xl text-white font-bold'>{name}</h1>
     <div class="lg:w-4/6 mx-auto">
       <div class="rounded-lg h-96 overflow-hidden">
-        <img alt="content" class="object-cover object-center h-full w-full" src={image?.original} />
       </div>
       <div class="flex flex-col sm:flex-row mt-10">
         <div class="sm:w-1/3 text-center ">
           <div class="flex flex-col items-center text-center justify-center">
-            <h1 class="font-medium text-2xl title-font mt-4 text-white text-lg">DATITA</h1>
             <div class="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
             <ul class="text-base text-left">
             <li class="pb-2"><bold class="font-bold">Rating:</bold> {rating?.average || "-"} </li>
