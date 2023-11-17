@@ -1,6 +1,7 @@
 {
   "franui": {
     "id": 34254657,
+    "slug":"franui",
     "name": "Franui",
     "options": [
       {
@@ -24,6 +25,7 @@
   },
   "palito": {
     "id": 34254657,
+    "slug":"palito",
     "name": "Helado palito",
     "options": [
       {
@@ -163,6 +165,7 @@
   },
   "pote": {
     "id": 23456,
+    "slug":"pote",
     "name": "Pote",
     "options": [
       {

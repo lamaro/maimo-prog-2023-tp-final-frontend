@@ -23,7 +23,7 @@ function NavbarComponent() {
   };
 
   const menuItems = [
-    { label: "Productos", path: "/helados" },
+    { label: "Productos", path: "/Helados" },
     { label: "Conocenos", path: "/about" },
     { label: "Newsletter", path: "#new" },
     { label: "Contactanos", path: "#new" },

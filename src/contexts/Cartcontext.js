@@ -16,57 +16,30 @@ const CartProvider = ({ defaultValue = [], children }) => {
 
   const getProducts = useCallback(async () => {
     try {
-      setLoadingProducts(true)
+      setLoadingProducts(true);
       const products = await axios.get("/data/products.json");
       setProducts(products.data);
-      setLoadingProducts(false)
+      setLoadingProducts(false);
     } catch (error) {
       console.log(error);
     }
   }, []);
 
-  //funcion nueva: es asincrona y es para llamar al json 
+  //funcion nueva: es asincrona y es para llamar al json
+
   const getProduct = useCallback(async (id) => {
-    console.log(id)
+    console.log(id);
+    setLoadingProducts(true);
     try {
-      setLoadingProducts(true)
       //filtrar products y devolver un producto por id
-      let products2 = await axios.get("/data/products.json");
-        let productFinal = await buscarPorSKU(products2.data, id);
-        console.log(productFinal)
-        setProducto(productFinal)
-      
-      
-      setLoadingProducts(false)
-    
+      const product = await axios.get("/data/products.json/product/${slug}");
+      setProducto(product.data);
+
+      setLoadingProducts(false);
     } catch (error) {
       console.log(error);
     }
   }, []);
-
-  //buscamos por sku para traer elementos del json
-  async function  buscarPorSKU(data, skuBuscado) {
-    // Iterar sobre cada propiedad del objeto
-    //in es una propiedad de queda objeto
-    //no usamos map porque no recorre objetos
-    for (let categoria in data) {
-      //data es todo el json
-      //categoria = franui/helados/palitos
-      let opciones = data[categoria].options;
-
-      // Buscar en las opciones de cada categoría
-      //of es para un array (recorremos cada elemento del array)
-      //aca podríamos usar un map porque sí recorre arrays
-      for (let opcion of opciones) {
-        if (opcion.sku === skuBuscado) {
-          return opcion; // Retorna la opción encontrada
-        }
-      }
-    }
-
-    // Retorna null si no se encuentra el SKU
-    return null;
-  }
 
   useEffect(() => {
     getProducts();
