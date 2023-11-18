@@ -1,11 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://use.typekit.net/nru1nwu.css");
+
+
+@import url("https://use.typekit.net/nru1nwu.css");
+
+
 
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+}
+
+html{
+  background-color: white;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,10 +28,23 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: #FDFAF0;
+  font-family: Swear Text;
+}
+
+h1{
+  font-family: Swear Text;
+}
+h2{
+  font-family: degular, sans-serif;
+
+}
+
+p{
+  font-family: degular-text, sans-serif;
+
+}
+
+a{
+  color:black;
 }
