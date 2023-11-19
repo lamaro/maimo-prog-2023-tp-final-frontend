@@ -12,7 +12,8 @@ const CartContext = createContext();
 const CartProvider = ({ defaultValue = [], children }) => {
   const [products, setProducts] = useState(null);
   const [producto, setProducto] = useState({});
-  const [lodingProducts, setLoadingProducts] = useState(true);
+  const [loadingProducts, setLoadingProducts] = useState(true);
+  const [recursos, setRecursos] = useState([]);
 
   const getProducts = useCallback(async () => {
     try {
@@ -41,17 +42,55 @@ const CartProvider = ({ defaultValue = [], children }) => {
     }
   }, []);
 
+
   useEffect(() => {
     getProducts();
   }, [getProducts]);
+
+  const filterRecursos = useCallback((value) => {
+    let productosFiltrados = [];
+    if (products) {
+      switch (value) {
+        case "franui":
+          productosFiltrados = products.franui.options;
+          break;
+        case "palitos":
+          productosFiltrados = products.palito.options;
+          break;
+        case "pote":
+          productosFiltrados = products.pote.options;
+          break;
+          case "todos":
+            productosFiltrados = [
+              ...products.franui.options,
+              ...products.palito.options,
+              ...products.pote.options,
+            ];
+          break;
+        default:
+          productosFiltrados = [
+            ...products.franui.options,
+            ...products.palito.options,
+            ...products.pote.options,
+          ];
+      }
+    }
+    setRecursos(productosFiltrados);
+  }, [products]);
+
+  useEffect(() => {
+    filterRecursos("franui"); // Puedes cambiar el valor inicial aquí
+  }, [filterRecursos]);
 
   return (
     <CartContext.Provider
       value={{
         products,
-        lodingProducts,
+        loadingProducts,
         getProduct,
         producto,
+        recursos,
+        filterRecursos,
       }}
     >
       {children}

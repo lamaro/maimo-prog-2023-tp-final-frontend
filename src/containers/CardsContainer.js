@@ -1,11 +1,9 @@
 import React from 'react'
 import { useCartContext } from "@/contexts/Cartcontext";
-import { useState, useEffect } from "react";
 import ProductCard from '@/componentes/ProductCard';
 
-const CardsContainer = ({ recursos }) => {
-
-
+const CardsContainer = () => {
+    const  {recursos} = useCartContext();
     return (
        
           
