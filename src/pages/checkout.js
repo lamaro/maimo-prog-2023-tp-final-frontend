@@ -1,9 +1,15 @@
-import React from 'react'
+import React from 'react';
+import LayoutContainer from '@/containers/LayoutContainer';
 
 const checkout = () => {
-  return (
-    <div> new checkout</div>
-  )
+  return( 
+    <LayoutContainer>
+      <main>
+        
+      </main>
+      <p>hola nuevo contaienr</p>
+    </LayoutContainer>
+  );
 }
 
-export default checkout
+export default checkout;
