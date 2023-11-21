@@ -4,6 +4,6 @@ const CheckoutContainer = () => {
     return (
         <div>hola</div>
     );
-  }
+  };
   
   export default CheckoutContainer;
