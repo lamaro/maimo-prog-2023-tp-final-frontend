@@ -11,8 +11,6 @@ const Helados = () => {
   const handleClick = (value ="franui") => {
     filterRecursos(value);
     value==="palitos"?setSlugName("palito"): setSlugName(value)
-    
-
   };
 
   return (
