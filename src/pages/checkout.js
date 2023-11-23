@@ -8,6 +8,14 @@ const checkout = () => {
       <h1 className="text-6xl font-bold text-center mb-10">
           Checkout
       </h1>
+      <div>
+        <div>
+          
+        </div>
+        <div>
+          <p>total checkout</p>
+        </div>
+      </div>
       </main>
     </LayoutContainer>
   );
