@@ -2,7 +2,7 @@ import React from 'react';
 import { useCartContext } from '@/contexts/Cartcontext';
 import { Button, Card, CardBody, CardHeader, Image } from '@nextui-org/react';
 
-const Checkout = () => {
+const PreviousCart = () => {
   const { cart, addToCart, removeFromCart, deleteFromCart } = useCartContext();
 
   const calcularPrecioFinal = () => {
@@ -76,4 +76,4 @@ const Checkout = () => {
   );
 };
 
-export default Checkout;
+export default PreviousCart;

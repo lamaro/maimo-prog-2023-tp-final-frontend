@@ -16,7 +16,7 @@ export const ShowSingleProduct = ({ producto, allInfo }) => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [selectedGusto, setSelectedGusto] = useState(null);
   const [selectedGustos, setSelectedGustos] = useState([]);
-  const [selectedExtra, setSelectedExtra] = useState(null);
+  const [selectedExtra, setSelectedExtra] = useState([]);
   const [selectedExtras, setSelectedExtras] = useState([]);
   const [selectedCard, setSelectedCard] = useState(null);
   const [selectedProductId, setSelectedProductId] = useState(null);
@@ -53,22 +53,26 @@ export const ShowSingleProduct = ({ producto, allInfo }) => {
     }
   };
 
-  const handleAdicional = () => {
-    if (selectedExtra) {
-      addToCart({
-        id: selectedExtra.sku,
-        name: selectedExtra.name,
-        price: selectedExtra.price,
-        quantity: 1,
-      });
+const handleAdicional = () => {
+  if (selectedExtra) {
+    addToCart({
+      id: selectedExtra.sku,
+      name: selectedExtra.name,
+      price: selectedExtra.price,
+      quantity: 1,
+    });
 
-      console.log("Datos guardados:", newData);
-    } else {
-      console.warn(
-        "Por favor, selecciona un producto y un gusto antes de guardar."
-      );
-    }
-  };
+    console.log("Datos guardados:", selectedExtra);
+
+    // Cierra el acordeón de adicionales al guardar
+    setAdicionalesAccordionOpen(false);
+  } else {
+    console.warn(
+      "Por favor, selecciona un producto y un gusto antes de guardar. ",
+      selectedExtra
+    );
+  }
+};
 
   const handleSaveClick = () => {
     if (selectedProduct || selectedGusto) {
@@ -198,8 +202,8 @@ export const ShowSingleProduct = ({ producto, allInfo }) => {
           {adicionalesAccordionOpen && (
             <CheckboxGroup
               label="Selecciona tus adicionales"
-              value={selectedExtras}
-              onChange={(values) => setSelectedExtras(values)}
+              value={selectedExtra}
+              onChange={(values) => setSelectedExtra(values)}
             >
               {allInfo &&
                 allInfo.cucurucho.options.map((adicional) => (
@@ -218,8 +222,9 @@ export const ShowSingleProduct = ({ producto, allInfo }) => {
         </div>
 
         {/* Botón de Guardar */}
-        <Button onClick={handleSaveClick}>Guardar</Button>
+        <Button onClick={handleSaveClick}>Agergar carrito</Button>
       </div>
     </LayoutContainer>
   );
 };
+
