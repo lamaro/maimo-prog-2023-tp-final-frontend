@@ -1,47 +1,119 @@
-import { CardHeader, Card, Image, CardBody, RadioGroup, Radio } from '@nextui-org/react'
-import React from 'react'
-import LayoutContainer from '@/containers/LayoutContainer'
-//allInfo es todo mi json
+import { CardHeader, Card, Image, CardBody, RadioGroup, Radio, Button } from '@nextui-org/react';
+import React, { useState } from 'react';
+import LayoutContainer from '@/containers/LayoutContainer';
+import { useCartContext } from '@/contexts/Cartcontext';
+
 export const ShowSingleProduct = ({ producto, allInfo }) => {
-    console.log(producto)
-    const [selected, setSelected] = React.useState();//el estado del botón (checkbox)
+    const [selectedProduct, setSelectedProduct] = useState(null);
+    const [selectedGusto, setSelectedGusto] = useState(null);
+    const [selectedExtra, setSelectedExtra] = useState(null);
+    const { addToCart } = useCartContext(); 
+  
+    console.log(allInfo, "estoy aca dentro para ver que hay")
+    const handleProductSelect = (product) => {
+      setSelectedProduct(product);
+    };
+  
+const handleAdicional =  () => {
+    if ( selectedExtra) {
 
 
+   
+    
+      addToCart({
+        id: selectedExtra.sku, 
+        name: selectedExtra.name,
+        price: selectedExtra.price, 
+        quantity: 1, 
+        
+       
+        
+      });
+
+      console.log('Datos guardados:', newData);
+    } else {
+      console.warn('Por favor, selecciona un producto y un gusto antes de guardar.');
+    }
+  };
+
+    const handleSaveClick = () => {
+      if (selectedProduct || selectedGusto  ) {
+        const newData = {
+          selectedProduct,
+          selectedGusto,
+        };
+  
+     
+        addToCart({
+          id: selectedProduct.id, 
+          name: selectedProduct.name,
+          price: selectedProduct.price, 
+          quantity: 1, 
+          image:selectedProduct.image,
+          gusto: selectedGusto,
+          
+        });
+      
+  
+    
+      } else {
+        console.warn('Por favor, selecciona un producto y un gusto antes de guardar.');
+      }
+    };
+  
     return (
-        <LayoutContainer>
-            <div className='h-screen bg-black flex flex-col justify-center items-center'>
+      <LayoutContainer>
+        <div className='h-screen  flex flex-wrap justify-center items-center'>
+          {producto?.options?.map((p) => (
+            <Card key={p.sku} className='bg-red-200 mx-2 my-2 flex-grow max-w-sm'>
+              <CardHeader>{p.name}</CardHeader>
+              <p>{p.description}</p>
+              <div className='grid grid-cols-2'>
+                {/* <Image src={p.image} alt={p.name} /> */}
+                <CardBody></CardBody>
+              </div>
+              <Button onClick={() => handleProductSelect(p)}>
+                Seleccionar Producto
+              </Button>
+            </Card>
+          ))}
+     {producto?.options[0]?.name?.includes("Franuis")?"":
+<div>
+<RadioGroup
+              label='Selecciona tu gusto favorito'
+              value={selectedGusto}
+              onValueChange={setSelectedGusto}
+            >
+              {allInfo &&
+                allInfo.gustos.options.map((gusto) => (
+                  <Radio key={gusto.sku} value={gusto.name}>
+                    {gusto.name}
+                  </Radio>
+                ))}
+                
+            </RadioGroup>
+            <RadioGroup
+              label='Selecciona tu adicional'
+              value={selectedExtra}
+              onValueChange={setSelectedGusto}
+            >
+              {allInfo &&
+                allInfo.cucurucho.options.map((gusto) => (
+                  <Radio key={gusto.sku} value={gusto.name}>
+                    {gusto.name}
+                  </Radio>
+                ))}
+                
+            </RadioGroup>
+            Gusto Seleccionado: {selectedGusto}
+            <Button onClick={handleAdicional}> guardar adicional</Button>
+          </div>
 
-                <Card className='bg-red-200 '>
-                    <CardHeader>{producto.name}</CardHeader>
-                    <div className='grid grid-cols-2'>
-                        <Image src={producto.image} alt={producto.name}></Image>
-                        <CardBody>
-                            Titulo
-                            Parrafo
-                            gustos
-                            <div>
-                                <RadioGroup
-                                    label="Select your favorite city"
-                                    value={selected}
-                                    onValueChange={setSelected}
-                                >
-                                    {/* {si tengo toda la info, entonces hace un map para todos los gustos} */}
-                                    {allInfo && allInfo.gustos.options.map(gusto => {
-                                        return (
-                                            <Radio value={gusto.name} key={gusto.sku} >{gusto.name}</Radio>
-                                        )
-                                    })}
-
-                                </RadioGroup>
-                                Gusto Seleccionado: {selected}
-                            </div>
-                            Boton
-                        </CardBody>
-                    </div>
-
-                </Card>
-
-            </div>
-        </LayoutContainer >
-    )
-}
+     }
+          
+  
+          <Button onClick={handleSaveClick}>Guardar</Button>
+        </div>
+      </LayoutContainer>
+    );
+  };
