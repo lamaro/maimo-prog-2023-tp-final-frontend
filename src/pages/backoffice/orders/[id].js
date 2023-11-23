@@ -1,4 +1,3 @@
-import BOSingleOrder from '@/componentes/BOSingleOrder';
 import { useRouter } from 'next/router';
 
 const Order = () => {
@@ -7,7 +6,6 @@ const Order = () => {
 
   return (
     <>
-      <BOSingleOrder id={id} />
     </>
   )
 };
