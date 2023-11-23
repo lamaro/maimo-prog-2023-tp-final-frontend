@@ -27,7 +27,7 @@ html{
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: black;
   background: #FDFAF0;
   font-family: Swear Text;
 }
