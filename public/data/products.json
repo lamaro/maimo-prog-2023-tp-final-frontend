@@ -1,16 +1,17 @@
 {
   "franui": {
     "id": 34254657,
+    "slug":"franui",
     "name": "Franui",
     "options": [
-      {
+      {"id":1,
         "name": "Franuis: Chocolate Amargo",
         "price": 2400,
         "sku": "Franui-Choco-Amargo",
         "image": "https://github.com/lamaro/maimo-prog-2023-tp-final-frontend/blob/develop/public/assets/franui-amargo.png?raw=true",
         "description": "Deliciosas frambuesas provenientes de El Bolsón, Patagonia Argentina, bañadas en dos chocolates: chocolate amargo y chocolate blanco."
       },
-      {
+      {"id":2,
         "name": "Franuis: Chocolate Con Leche",
         "price": 3000,
         "sku": "Franui-Choco-Leche",
@@ -24,9 +25,10 @@
   },
   "palito": {
     "id": 34254657,
+    "slug":"palito",
     "name": "Helado palito",
     "options": [
-      {
+      {"id":3,
         "name": "Palito Agua de Frutilla",
         "units": "8U",
         "price": 5000,
@@ -34,7 +36,7 @@
         "image": "https://github.com/lamaro/maimo-prog-2023-tp-final-frontend/blob/develop/public/assets/palito-frutilla.png?raw=true",
         "description": "Combinamos criogenización controlada para resaltar la frescura de las frutillas y el sabor dulzón de las frambuesas."
       },
-      {
+      {"id":4,
         "name": "Palito Agua de Limón",
         "units": "12U",
         "price": 7000,
@@ -42,7 +44,7 @@
         "image": "https://github.com/lamaro/maimo-prog-2023-tp-final-frontend/blob/develop/public/assets/palito-limon.png?raw=true",
         "description": "Dejate llevar por la viveza de nuestro palito de agua sabor limón, una experiencia que rinde homenaje a la acidez refrescante de los limones argentinos. Cada bocado es como disfrutar de la frescura de los limones cultivados en nuestros propios patios, con ese toque ácido que nos caracteriza."
       },
-      {
+      {"id":5,
         "name": "Palito Agua de Naranja",
         "units": "12U",
         "price": 7000,
@@ -59,7 +61,7 @@
     "id": 34254227,
     "name": "Gustos",
     "options": [
-      {
+      {"id":6,
         "sku": "crema-pamepana",
         "name": "Crema Pampeana",
         "image": "https://github.com/lamaro/maimo-prog-2023-tp-final-frontend/blob/develop/public/assets/flavor-crema-pampeana.png?raw=true",
@@ -69,7 +71,7 @@
           "celiaco": false
         }
       },
-      {
+      {"id":7,
         "sku": "coco-bahiano-crema",
         "name": "Coco Bahiano",
         "image": "https://github.com/lamaro/maimo-prog-2023-tp-final-frontend/blob/develop/public/assets/flavor-coco-bahiano.png?raw=true",
@@ -79,7 +81,7 @@
           "celiaco": false
         }
       },
-      {
+      {"id":8,
         "sku": "sandia-primavera-crema",
         "name": "Sandía Primavera",
         "image": "https://github.com/lamaro/maimo-prog-2023-tp-final-frontend/blob/develop/public/assets/flavor-sandia-primavera.png?raw=true",
@@ -89,7 +91,7 @@
           "celiaco": false
         }
       },
-      {
+      {"id":9,
         "sku": "maracuya-crema",
         "name": "Maracuyá",
         "image": "https://github.com/lamaro/maimo-prog-2023-tp-final-frontend/blob/develop/public/assets/flavor-maracuya.png?raw=true",
@@ -99,7 +101,7 @@
           "celiaco": false
         }
       },
-      {
+      {"id":10,
         "sku": "vainilla-crema",
         "name": "Vainilla",
         "image": "https://github.com/lamaro/maimo-prog-2023-tp-final-frontend/blob/develop/public/assets/flavor-vainilla.png?raw=true",
@@ -109,7 +111,7 @@
           "celiaco": false
         }
       },
-      {
+      {"id":11,
         "sku": "tentacion-fresas-crema",
         "name": "Tentación del Bosque",
         "image": "https://github.com/lamaro/maimo-prog-2023-tp-final-frontend/blob/develop/public/assets/flavor-tentacion-fresas.png?raw=true",
@@ -119,7 +121,7 @@
           "celiaco": false
         }
       },
-      {
+      {"id":12,
         "sku": "mango-tropical-crema",
         "name": "Mango Tropical",
         "image": "https://github.com/lamaro/maimo-prog-2023-tp-final-frontend/blob/develop/public/assets/flavor-mango-tropical.png?raw=true",
@@ -129,7 +131,7 @@
           "celiaco": false
         }
       },
-      {
+      {"id":13,
         "sku": "limon-crema",
         "name": "Limón a la crema",
         "image": "https://github.com/lamaro/maimo-prog-2023-tp-final-frontend/blob/develop/public/assets/flavor-limon.png?raw=true",
@@ -139,7 +141,7 @@
           "celiaco": false
         }
       },
-      {
+      {"id":14,
         "sku": "naranja-frutal-crema",
         "name": "Naranja Frutal",
         "image": "https://github.com/lamaro/maimo-prog-2023-tp-final-frontend/blob/develop/public/assets/flavor-naranja-frutal.png?raw=true",
@@ -149,7 +151,7 @@
           "celiaco": false
         }
       },
-      {
+      {"id":15,
         "sku": "frutos-patagonicos-crema",
         "name": "Frutos Patagónicos",
         "image": "https://github.com/lamaro/maimo-prog-2023-tp-final-frontend/blob/develop/public/assets/flavor-naranja-frutal.png?raw=true",
@@ -163,9 +165,10 @@
   },
   "pote": {
     "id": 23456,
+    "slug":"pote",
     "name": "Pote",
     "options": [
-      {
+      {"id":16,
         "name": "Pote 1Kg",
         "price": 4000,
         "maxFlavors": 4,
@@ -173,7 +176,7 @@
         "image": "https://github.com/lamaro/maimo-prog-2023-tp-final-frontend/blob/develop/public/assets/1kg.png?raw=true",
         "description": "Disfrutá de hasta 4 gustos de helado para compartir con otros (o solo, no juzgamos :D)."
       },
-      {
+      {"id":17,
         "name": "Pote 1/2Kg",
         "price": 2000,
         "maxFlavors": 3,
@@ -181,7 +184,7 @@
         "image": "https://github.com/lamaro/maimo-prog-2023-tp-final-frontend/blob/develop/public/assets/1-2kg.png?raw=true",
         "description": "1 KG es mucho? Podés ir por la opción de 1/2 KG y disfrutar de hasta 3 gustos de helado."
       },
-      {
+      {"id":18,
         "name": "Pote 1/4Kg",
         "price": 1200,
         "maxFlavors": 3,
@@ -199,12 +202,12 @@
     "id": 34254657,
     "name": "Cucurucho",
     "options": [
-      {
+      {"id":19,
         "name": "3 Unidades",
         "price": 2400,
         "sku": "Cucu-3u"
       },
-      {
+      {"id":20,
         "name": "Bañado",
         "price": 4000,
         "sku": "Cucu-bañado"
@@ -218,7 +221,7 @@
     "id": 34254657,
     "name": "Salsa",
     "options": [
-      {
+      {"id":21,
         "name": "1 Salsita",
         "price": 2400,
         "sku": "Salsi-choco"
@@ -232,7 +235,7 @@
     "id": 34254657,
     "name": "Topping",
     "options": [
-      {
+      {"id":22,
         "name": "Nueces pecán",
         "price": 2400,
         "sku": "pecan-todos"

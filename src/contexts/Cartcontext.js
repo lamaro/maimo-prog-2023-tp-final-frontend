@@ -12,74 +12,144 @@ const CartContext = createContext();
 const CartProvider = ({ defaultValue = [], children }) => {
   const [products, setProducts] = useState(null);
   const [producto, setProducto] = useState({});
-  const [lodingProducts, setLoadingProducts] = useState(true);
+  const [loadingProducts, setLoadingProducts] = useState(true);
+  const [recursos, setRecursos] = useState([]);
+  const [cart, setCart] = useState(defaultValue);
+
+
+
+    const updateLocalStorage = () => {
+      localStorage.setItem('cart', JSON.stringify(cart));}
+
+
+      // ... (tu código existente)
+    
+      const addToCart = (product) => {
+        // Verificar si el producto ya está en el carrito
+        const existingProduct = cart.find((item) => item.id === product.id && item.gusto === product.gusto);
+    
+        if (existingProduct) {
+            // Si ya existe con el mismo gusto, incrementar la cantidad
+            setCart((prevCart) =>
+                prevCart.map((item) =>
+                    item.id === product.id && item.gusto === product.gusto
+                        ? { ...item, quantity: item.quantity + 1 }
+                        : item
+                )
+            );
+        } else {
+            // Si no existe, agregarlo al carrito con cantidad 1
+            setCart((prevCart) => [...prevCart, { ...product, quantity: 1 }]);
+        }
+    };
+    const removeFromCart = (product, removeAll = false) => {
+      setCart((prevCart) =>
+        prevCart.map((item) =>
+          item.id === product.id && item.gusto === product.gusto
+            ? {
+                ...item,
+                quantity: removeAll ? 0 : Math.max(0, item.quantity - 1),
+              }
+            : item
+        )
+      );
+    };
+
 
   const getProducts = useCallback(async () => {
     try {
-      setLoadingProducts(true)
-      const products = await axios.get("/data/products.json");
-      setProducts(products.data);
-      setLoadingProducts(false)
+      setLoadingProducts(true);
+      const productos = await axios.get("/data/products.json");
+      setProducts(productos.data);
+      setLoadingProducts(false);
     } catch (error) {
       console.log(error);
     }
   }, []);
-
-  //funcion nueva: es asincrona y es para llamar al json 
-  const getProduct = useCallback(async (id) => {
-    console.log(id)
-    try {
-      setLoadingProducts(true)
-      //filtrar products y devolver un producto por id
-      let products2 = await axios.get("/data/products.json");
-        let productFinal = await buscarPorSKU(products2.data, id);
-        console.log(productFinal)
-        setProducto(productFinal)
-        console.log(producto)
-      
-      
-      setLoadingProducts(false)
-    
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
-
-  //buscamos por sku para traer elementos del json
-  async function  buscarPorSKU(data, skuBuscado) {
-    // Iterar sobre cada propiedad del objeto
-    //in es una propiedad de queda objeto
-    //no usamos map porque no recorre objetos
-    for (let categoria in data) {
-      //data es todo el json
-      //categoria = franui/helados/palitos
-      let opciones = data[categoria].options;
-
-      // Buscar en las opciones de cada categoría
-      //of es para un array (recorremos cada elemento del array)
-      //aca podríamos usar un map porque sí recorre arrays
-      for (let opcion of opciones) {
-        if (opcion.sku === skuBuscado) {
-          return opcion; // Retorna la opción encontrada
-        }
-      }
-    }
-
-    // Retorna null si no se encuentra el SKU
-    return null;
-  }
 
   useEffect(() => {
     getProducts();
   }, [getProducts]);
+  
+  console.log("entre aca",producto)
+  //funcion nueva: es asincrona y es para llamar al json
+
+const getProduct = useCallback(async (id) => {
+  console.log(id);
+  setLoadingProducts(true);
+  try {
+    // Corrige la línea siguiente para usar la variable id en lugar de slug
+    const product = await axios.get(`/data/products.json`);
+    setProducto(product.data);
+    
+    setLoadingProducts(false);
+  } catch (error) {
+    console.log(error);
+  }
+}, []);
+
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
+  const filterRecursos = useCallback((value) => {
+    let productosFiltrados = [];
+    if (products) {
+      switch (value) {
+        case "franui":
+          productosFiltrados = products.franui.options;
+          break;
+        case "palitos":
+          productosFiltrados = products.palito.options;
+          break;
+        case "pote":
+          productosFiltrados = products.pote.options;
+          break;
+          case "todos":
+            productosFiltrados = [
+              ...products.franui.options,
+              ...products.palito.options,
+              ...products.pote.options,
+            ];
+          break;
+        default:
+          productosFiltrados = [
+            ...products.franui.options,
+            ...products.palito.options,
+            ...products.pote.options,
+          ];
+      }
+    }
+    setRecursos(productosFiltrados);
+  }, [products]);
+
+  useEffect(() => {
+    filterRecursos("franui"); // Puedes cambiar el valor inicial aquí
+  }, [filterRecursos]);
+  
+  useEffect(() => {
+    updateLocalStorage();
+  }, [cart]);
+  const deleteFromCart = (product) => {
+    setCart((prevCart) =>
+      prevCart.filter((item) => !(item.id === product.id && item.gusto === product.gusto))
+    );
+  };
 
   return (
     <CartContext.Provider
       value={{
         products,
-        lodingProducts,
+        loadingProducts,
         getProduct,
         producto,
+        recursos,
+        filterRecursos,
+        cart,
+        addToCart,
+        removeFromCart,
+        deleteFromCart
       }}
     >
       {children}

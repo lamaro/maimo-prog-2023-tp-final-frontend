@@ -140,3 +140,4 @@ const flavors = [
   },
 ];
 
+export { products, categories, flavors };
