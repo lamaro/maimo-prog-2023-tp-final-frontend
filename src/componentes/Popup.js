@@ -25,7 +25,7 @@ const Popup = ({ producto, gusto, precio, seguirComprando }) => {
               {producto} de {gusto}
             </p>
             <p className="text-base leading-relaxed text-gray-500">
-              A ${precio}
+              ${precio}
             </p>
           </div>
           <div className="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b justify-end">

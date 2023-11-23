@@ -11,8 +11,10 @@ import React, { useState, useEffect } from "react";
 import LayoutContainer from "@/containers/LayoutContainer";
 import { useCartContext } from "@/contexts/Cartcontext";
 import { CheckboxGroup, Checkbox } from "@nextui-org/react";
+import PopUpContainer from "@/containers/PopupContainer";
 
 export const ShowSingleProduct = ({ producto, allInfo }) => {
+  const [showPopUp, setShowPopUp] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [selectedGusto, setSelectedGusto] = useState(null);
   const [selectedGustos, setSelectedGustos] = useState([]);
@@ -53,28 +55,33 @@ export const ShowSingleProduct = ({ producto, allInfo }) => {
     }
   };
 
-const handleAdicional = () => {
-  if (selectedExtra) {
-    addToCart({
-      id: selectedExtra.sku,
-      name: selectedExtra.name,
-      price: selectedExtra.price,
-      quantity: 1,
-    });
+  const mostrarPopup = () => {
+    setShowPopUp(true);
+  };
 
-    console.log("Datos guardados:", selectedExtra);
+  const handleAdicional = () => {
+    if (selectedExtra) {
+      addToCart({
+        id: selectedExtra.sku,
+        name: selectedExtra.name,
+        price: selectedExtra.price,
+        quantity: 1,
+      });
 
-    // Cierra el acordeón de adicionales al guardar
-    setAdicionalesAccordionOpen(false);
-  } else {
-    console.warn(
-      "Por favor, selecciona un producto y un gusto antes de guardar. ",
-      selectedExtra
-    );
-  }
-};
+      console.log("Datos guardados:", selectedExtra);
+
+      // Cierra el acordeón de adicionales al guardar
+      setAdicionalesAccordionOpen(false);
+    } else {
+      console.warn(
+        "Por favor, selecciona un producto y un gusto antes de guardar. ",
+        selectedExtra
+      );
+    }
+  };
 
   const handleSaveClick = () => {
+    setShowPopUp(true);
     if (selectedProduct || selectedGusto) {
       const newData = {
         selectedProduct,
@@ -107,6 +114,10 @@ const handleAdicional = () => {
         prevGustos.filter((gusto) => gusto !== gustoName)
       );
     }
+  };
+
+  const handleSeguirComprando = () => {
+    setShowPopUp(false);
   };
 
   return (
@@ -177,6 +188,12 @@ const handleAdicional = () => {
             </div>
           )}
           {/* Botón de Siguiente (aparece solo cuando el acordeón de gustos está abierto) */}
+          
+          
+          {/* {producto?.options[0]?.name?.includes("Franuis") || producto?.name?.includes("palito") ? (
+          ""
+        ) : ( */}
+          
           {gustosAccordionOpen && (
             <div className="flex justify-end mt-4">
               <Button
@@ -196,8 +213,10 @@ const handleAdicional = () => {
           )}
         </div>
 
+      
+
         {/* Sección de Adicionales */}
-        <div className="section-adicionales flex flex-wrap mb-16">
+        <div className="section-adicionales  mb-16">
           {/* Condición para renderizar la sección de checkboxes solo si el acordeón está abierto */}
           {adicionalesAccordionOpen && (
             <CheckboxGroup
@@ -213,18 +232,27 @@ const handleAdicional = () => {
                 ))}
             </CheckboxGroup>
           )}
+
           {/* Botón de Adicionales (aparece solo cuando el acordeón de adicionales está abierto) */}
           {adicionalesAccordionOpen && (
-            <Button className="mb-32" onClick={handleAdicional}>
-              Guardar Adicional
+            <Button className="mb-32 mt-8 bg-green-300 " onClick={handleSaveClick}>
+              Agregar a carrito
             </Button>
           )}
         </div>
 
+        <div className={`${showPopUp ? "block" : "hidden"}`}>
+          <PopUpContainer
+            producto={selectedProduct?.name}
+            gusto={selectedGustos}
+            precio={selectedProduct?.price}
+            seguirComprando={handleSeguirComprando}
+          ></PopUpContainer>
+        </div>
+
         {/* Botón de Guardar */}
-        <Button onClick={handleSaveClick}>Agergar carrito</Button>
+        <Button onClick={handleSaveClick}>Agregar al carrito</Button>
       </div>
     </LayoutContainer>
   );
 };
-
