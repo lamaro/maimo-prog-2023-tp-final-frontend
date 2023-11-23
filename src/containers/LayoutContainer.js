@@ -1,5 +1,6 @@
-import Footer from '@/componentes/Footer';
 import NavbarComponent from '@/componentes/Navbar';
+import Footer from '@/componentes/Footer';
+
 
 const LayoutContainer = ({ children, title }) => {
   return (
@@ -7,7 +8,7 @@ const LayoutContainer = ({ children, title }) => {
       <NavbarComponent />
       <h1>{title}</h1>
       <main>{children}</main>
-      <Footer />
+      <Footer className="fixed bottom-0 w-full" />
     </>
   );
 };
