@@ -25,8 +25,7 @@ function NavbarComponent() {
   const menuItems = [
     { label: "Productos", path: "/helados" },
     { label: "Conocenos", path: "/about" },
-    { label: "Newsletter", path: "#new" },
-    { label: "Contactanos", path: "#new" },
+    { label: "Contactanos", path: "/contact" },
   ];
 
   return (
