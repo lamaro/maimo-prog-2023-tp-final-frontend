@@ -5,7 +5,9 @@ import { Spinner } from '@nextui-org/react';
 
 const SingleProductContainer = ({ id }) => {
   const { producto, getProduct, loadingProducts, products } = useCartContext()
-  console.log("id: ",id)
+
+ 
+
   useEffect(() => {
     if (id) {
       getProduct(id)
@@ -17,7 +19,7 @@ const SingleProductContainer = ({ id }) => {
   //Traigo los gustos porque no tienen sku
   return (
     <>                                                           
-      {!loadingProducts ? <ShowSingleProduct producto={producto} allInfo={products} /> : <Spinner size="lg" /> }
+      {!loadingProducts ? <ShowSingleProduct producto={producto[id]} allInfo={products} /> : <Spinner size="lg" /> }
      
       
     </>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import { ReactSVG } from "react-svg";
 import Link from "next/link";
 import { FaShoppingCart } from "react-icons/fa";
@@ -12,16 +12,20 @@ import {
   NavbarItem,
   Link as NextUILink,
 } from "@nextui-org/react";
+import { useCartContext } from '@/contexts/Cartcontext';
 
 
 function NavbarComponent() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [cantidadEnCarrito, setCantidadEnCarrito] = useState(0);
 
-  const agregarAlCarrito = () => {
-    setCantidadEnCarrito(cantidadEnCarrito + 1);
-  };
+  // Obtenemos el contexto del carrito
+  const { cart } = useCartContext();
 
+  useEffect(() => {
+    // Actualizamos la cantidad en el carrito cada vez que cambie el carrito
+    setCantidadEnCarrito(cart.length);
+  }, [cart]);
   const menuItems = [
     { label: "Productos", path: "/helados" },
     { label: "Conocenos", path: "/about" },
@@ -79,10 +83,11 @@ function NavbarComponent() {
 
       <NavbarContent justify="end">
         <NavbarItem>
-          <NextUILink href="#new" className="text-black">
-            <FaShoppingCart size={24} />
-            <span className="px-2">({cantidadEnCarrito})</span>
-          </NextUILink>
+        <Link href={"/checkout"}><FaShoppingCart size={24} />
+            <span className="px-2">({cantidadEnCarrito})</span></Link>
+            
+            
+          
         </NavbarItem>
       </NavbarContent>
 

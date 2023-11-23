@@ -6,9 +6,14 @@ import LayoutContainer from "@/containers/LayoutContainer";
 
 const Helados = () => {
   const { recursos, filterRecursos } = useCartContext();
+  const [slugName, setSlugName] = useState("franui")
   const handleClick = (value ="franui") => {
     filterRecursos(value);
+    value==="palitos"?setSlugName("palito"): setSlugName(value)
+    
+
   };
+
   return (
     <div className="bg-amber-50 min-h-screen">
       <LayoutContainer>
@@ -29,6 +34,7 @@ const Helados = () => {
           {/* Products Section */}
           <CardsContainer
             recursos={recursos}
+            slug={slugName}
             className="grid grid-cols-1 md:grid-cols-3 gap-4 px-4"
           ></CardsContainer>
         </main>
