@@ -91,7 +91,7 @@ const getProduct = useCallback(async (id) => {
 
   useEffect(() => {
     getProducts();
-  }, []);
+  }, [getProducts]);
 
   const filterRecursos = useCallback((value) => {
     let productosFiltrados = [];
@@ -130,7 +130,7 @@ const getProduct = useCallback(async (id) => {
   
   useEffect(() => {
     updateLocalStorage();
-  }, [cart]);
+  }, [updateLocalStorage]);
   const deleteFromCart = (product) => {
     setCart((prevCart) =>
       prevCart.filter((item) => !(item.id === product.id && item.gusto === product.gusto))
