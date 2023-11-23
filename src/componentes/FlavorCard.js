@@ -1,14 +1,9 @@
-import { Accordion, AccordionItem, Card, CardBody, CardHeader, Image} from '@nextui-org/react';
+import { Accordion, AccordionItem, Button, Card, CardBody, CardHeader, Image} from '@nextui-org/react';
 import React from 'react';
-import Button from '@/componentes/Button'
-import { useRouter } from 'next/router';
-const ProductCard = ({ product }) => {
-    const router = useRouter(); 
+import Link from 'next/link';
+const FlavorCard = ({ product }) => {
     console.log(product)
-    const handleClick = () => {
-        router.push(`product/${product.sku}`) //cambiar sku a slug
-        console.log("clickeado")
-    }
+
 
     return (
         <Card className="py-0 h-auto">
@@ -29,15 +24,11 @@ const ProductCard = ({ product }) => {
                     <p className="text-tiny uppercase font-bold">{product?.units}</p>
                     <p className="text-tiny uppercase font-bold">{product?.maxFlavors}</p>
                 </div>
-                 
-{/*                <Link href={`product/${product.sku}`}> <Button variant="ghost" className= "text-tiny uppercase font-bold text-lime-600 border-lime-500">Ver más</Button> </Link>
- */} 
-            <Button handleClick={handleClick} label={"Ver Más"}/>
-            
+               <Link href={`product/${product.sku}`}> <Button variant="ghost" className= "text-tiny uppercase font-bold text-lime-600 border-lime-500">Ver más</Button> </Link>
             </CardBody>
         </Card>
 
     );
 };
 
-export default ProductCard;
+export default FlavorCard;
